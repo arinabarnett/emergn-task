@@ -30,7 +30,6 @@ export default new Vuex.Store({
       axios
         .get("https://rickandmortyapi.com/api/character")
         .then(({ data }) => {
-          console.log(data);
           context.commit("SET_CHARACTERS", data);
         })
         .catch(error => console.log(error));
@@ -39,7 +38,6 @@ export default new Vuex.Store({
       axios
         .get(`https://rickandmortyapi.com/api/character/?name=${param}`)
         .then(({ data }) => {
-          console.log(data);
           commit("SET_FOUND_ITEMS", data);
         })
         .catch(error => console.log(error));
@@ -48,7 +46,6 @@ export default new Vuex.Store({
       axios
         .get(`https://rickandmortyapi.com/api/character/?page=${pageNumber}`)
         .then(({ data }) => {
-          console.log(data, "data when clicked");
           commit("SET_CURRENT_PAGE", pageNumber);
           commit("SET_CHARACTERS", data);
         })
